@@ -97,12 +97,20 @@ local fb = Display.Toggle({
                Lighting.Ambient = Color3.new(1, 1, 1)
                Lighting.ColorShift_Bottom = Color3.new(1, 1, 1)
                Lighting.ColorShift_Top = Color3.new(1, 1, 1)
+          else
+               Lighting.Ambient = Color3.new(0, 0, 0)
+               Lighting.ColorShift_Bottom = Color3.new(0, 0, 0)
+               Lighting.ColorShift_Top = Color3.new(0, 0, 0)
           end
           Lighting.Changed:Connect(function()
                if value then
                     Lighting.Ambient = Color3.new(1, 1, 1)
                     Lighting.ColorShift_Bottom = Color3.new(1, 1, 1)
                     Lighting.ColorShift_Top = Color3.new(1, 1, 1)
+               else
+                    Lighting.Ambient = Color3.fromHex("#000000")
+                    Lighting.ColorShift_Bottom = Color3.fromHex("#000000")
+                    Lighting.ColorShift_Top = Color3.fromHex("#000000")
                end
           end)
      end
@@ -164,6 +172,8 @@ playerSection.Toggle({
           game:GetService("RunService").Stepped:Connect(function()
                if value then
                     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 25
+               else
+                    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
                end
           end)
      end
